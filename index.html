@@ -34,7 +34,7 @@
                       * include a way to remove individual listings
 
                 --> 
-            	<tr ng-click="showDetails($index)" ng-repeat="listing in listings | filter:searchText">
+            	<tr ng-click="showDetails($index)" ng-repeat="listing in listings | filter:searchText | orderBy:sortType:false">
 					<td>{{listing["code"]}}<td>
 					<td>{{listing["name"]}}<td>
             	</tr>
@@ -45,6 +45,20 @@
               Write an HTML form that adds new listings to the directory 
 
             -->
+            <h3> Add a listing </h3>
+            <label> Building Name
+            <input type="text" ng-model="newListing.name">
+          </input>
+          </label>
+          <label> Building Code
+            <input type="text" ng-model="newListing.code">
+          </input>
+          </label>
+          <label> Building Address
+            <input type="text" ng-model="newListing.address">
+          </input>
+          </label>
+            <button class="btn-primary" ng-click="addListing()"> Add </button>
         </div>
         <div class="col-md-6">
           <div class="jumbotron">
