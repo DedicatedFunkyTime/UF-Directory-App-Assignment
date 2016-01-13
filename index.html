@@ -18,7 +18,7 @@
 
               -->
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-            <input type="text" class="form-control" placeholder="Search">
+            <input ng-model="searchText" type="text" class="form-control" placeholder="Search">
           </div>
           <div class="tableWrapper">
             <table class="table table-striped table-hover">
@@ -34,6 +34,10 @@
                       * include a way to remove individual listings
 
                 --> 
+            	<tr ng-click="showDetails($index)" ng-repeat="listing in listings | filter:searchText">
+					<td>{{listing["code"]}}<td>
+					<td>{{listing["name"]}}<td>
+            	</tr>
             </table>
           </div>
           <!-- 
@@ -51,6 +55,8 @@
                    * consider how to use ng-click within the the table to implement this feature
 
              -->
+			 <h3>Address:</h3>
+			 <p>{{detailedInfo["address"]}}</p>
           </div>
         </div>
       </div>
