@@ -11,15 +11,15 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
     $scope.addListing = function() {
       console.log($scope.newListing);
-      $scope.listings.push($scope.newListing);
+      Listings.push($scope.newListing);
       $scope.newListing = {"name":"","code":"","address":""};
       $scope.listings = Listings;
     };
-    $scope.deleteListing = function(index) {
-    	$scope.listings.splice(index,1);
+    $scope.deleteListing = function(listing) {
+    	$scope.listings.splice($scope.listings.indexOf(listing),1);
     };
-    $scope.showDetails = function(index) {
-    	$scope.detailedInfo = $scope.listings[index];
+    $scope.showDetails = function(listing) {
+    	$scope.detailedInfo = $scope.listings[$scope.listings.indexOf(listing)];
     };
   }
 ]);
