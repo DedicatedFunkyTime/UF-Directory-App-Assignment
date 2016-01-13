@@ -37,6 +37,7 @@
             	<tr ng-click="showDetails($index)" ng-repeat="listing in listings | filter:searchText | orderBy:sortType:false">
 					<td>{{listing["code"]}}<td>
 					<td>{{listing["name"]}}<td>
+					<button class="btn-danger" ng-click="deleteListing($index)">Delete</button>			
             	</tr>
             </table>
           </div>
