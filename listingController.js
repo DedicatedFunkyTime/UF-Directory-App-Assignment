@@ -1,7 +1,8 @@
 angular.module('listings').controller('ListingsController', ['$scope', 'Listings', 
   function($scope, Listings) {
     $scope.listings = Listings;
-    $scope.detailedInfo = undefined;
+    $scope.currentAddress = undefined;
+    $scope.iframeURL= undefined;
     $scope.newListing = {"name":"","code":"","address":""};
     $scope.sortType = 'code';
     /* 
@@ -19,7 +20,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     	$scope.listings.splice($scope.listings.indexOf(listing),1);
     };
     $scope.showDetails = function(listing) {
-    	$scope.detailedInfo = $scope.listings[$scope.listings.indexOf(listing)];
+    	//var listing = $scope.listings[$scope.listings.indexOf(listing)];
+    	var baseURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAAvTy5D3B_nzoS1ezbnkg0wG7cCBXM5ms&q=";
+    	var address = listing["address"];
+    	$scope.currentAddress = address;
+    	address = address.replace(/\s/g,'+');
+    	$scope.iframeURL = baseURL.concat(address);
     };
   }
 ]);
