@@ -1,25 +1,53 @@
+h1{
+	padding: 15px;
+	color: white;
+	background-color: #000091;
+	box-shadow:inset 0 0 10px #000000;
+}
+
+h2{
+	color: #000091;
+}
 body{
-	background-color: #66FF66;
+	background-color: #8686CC; 
 }
 th{
 	background-color: #e1e1ea;
 }
+td{
+	color:white;
+}
+tr:hover{
+	opacity:0.8;
+	color: black;
+	cursor: pointer;
+}
 .greyBox{
-	padding-top: 3px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 5px 20px 0px 20px;
 	background-color: #e1e1ea;
 }
 #searchBar {
-  margin: 15px 10px;
+  margin-bottom: 15px;
 }
 .odd{
-	background-color: blue;
+	background-color: #000091;
 }
 .even{
-	background-color: orange;
+	background-color: #FF953E;
 }
 .tableWrapper {
-  max-height: 400px;
+  max-height: 350px;
   overflow: auto;
+}
+#search-icon{
+	color: #FF9100;
+}
+#map{
+	padding: 10px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	border: 5px solid #FF953E;
+}
+.jumbotron{
+	padding-top:10px;
 }

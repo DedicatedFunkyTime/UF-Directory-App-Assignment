@@ -17,15 +17,16 @@
                 Implement a way to filter through listings using the search bar 
 
               -->
-            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <span class="input-group-addon" id="sizing-addon1"><span id="search-icon" class="glyphicon glyphicon-search"></span></span>
             <input ng-model="searchText" type="text" class="form-control" placeholder="Search">
           </div>
           <div class="tableWrapper">
-            <table class="table table-hover">
+            <table class="table ">
               <tr>
                 <th>Code</th>
+				<th></th>
                 <th>Building Name</th>
-                <th></th>
+				<th></th>
               </tr>
               <!-- 
 
@@ -35,9 +36,9 @@
 
                 --> 
             	<tr ng-click="showDetails(listing)" ng-repeat="listing in listings | filter:searchText | orderBy:sortType:false" ng-class="{'even':$even,'odd':$odd}">
-               <td>{{listing["code"]}}<td>
-					     <td>{{listing["name"]}}<td>
-					     <button class="btn-danger" ng-click="deleteListing(listing)">Delete</button>			
+					<td>{{listing["code"]}}<td>
+					<td>{{listing["name"]}}<td>
+					<td><button class="btn btn-xs  btn-default glyphicon glyphicon-trash" ng-click="deleteListing(listing)"></button></td>			
               </tr>
             </table>
           </div>
@@ -46,21 +47,26 @@
               Write an HTML form that adds new listings to the directory 
 
             -->
-            <div class="greyBox">
-            <h3> Add a listing </h3>
-            <label> Building Name
+			<div class="greyBox col-md-12">
+				<div class="col-md-6">
+            <h3>New Listing</h3>
+            <label class=""> Building Name:
             <input type="text" ng-model="newListing.name">
           </input>
           </label>
-          <label> Building Code
+          <label> Building Code:
             <input type="text" ng-model="newListing.code">
           </input>
           </label>
-          <label> Building Address
+			</label>
+  			</div>
+  			<div class="col-md-6">
+				<br><br><br>
+          <label> Building Address:
             <input type="text" ng-model="newListing.address">
           </input>
-          </label>
-            <button class="btn-primary" ng-click="addListing()"> Add </button>
+            <button class="btn btn-primary btn-md pull-right" ng-click="addListing()">Add</button>
+		</div>
           </div>
           
         </div>
@@ -78,7 +84,7 @@
 			 	id="map"
 				class="col-md-12"
 				height="300"
-				frameborder="0" style="border:0"
+				frameborder="3"
 				ng-src="{{iframeURL | trusted}}" allowfullscreen>
 			</iframe>
 			 <h3>Address:</h3>
